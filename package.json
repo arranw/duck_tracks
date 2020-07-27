@@ -1,0 +1,31 @@
+{
+  "name": "duck_tracks",
+  "version": "1.0.0",
+  "description": "A data crowdsourcing application designed to aggregate data on how ducks are fed around the world.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arranw/duck_tracks.git"
+  },
+  "author": "Arran Woodruff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arranw/duck_tracks/issues"
+  },
+  "homepage": "https://github.com/arranw/duck_tracks#readme",
+  "dependencies": {
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
+  }
+}
