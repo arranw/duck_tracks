@@ -5,6 +5,7 @@ import Landing from "./features/common/Landing";
 import { GlobalStyle } from "./features/styled/Lib";
 import Navbar from "./features/common/Navbar";
 import AddFeeding from "./features/feedings/AddFeeding";
+import ViewFeeding from "./features/feedings/ViewFeeding";
 import ThankYou from "./features/feedings/ThankYou";
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/thankyou/:id">
           <ThankYou />
+        </Route>
+        <Route exact path="/view/:id">
+          <ViewFeeding />
         </Route>
         <Route path="/redux">
           <header className="App-header">

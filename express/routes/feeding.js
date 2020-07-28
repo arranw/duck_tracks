@@ -10,13 +10,13 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  await models.feeding.create({
-    time: "20:34",
-    location: "Rotary Park",
-    duck_quantity: 5,
-    food_type: "Sunflower Seeds",
-    food_quantity: 350
-  });
+  // await models.feeding.create({
+  //   time: "20:34",
+  //   location: "Rotary Park",
+  //   duck_quantity: 5,
+  //   food_type: "Sunflower Seeds",
+  //   food_quantity: 350
+  // });
 
   const feeding = await models.feeding.findByPk(req.params.id);
 
@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
   try {
     const feeding = await models.feeding.create(req.body);
 
-    return res.status(201).json(feeding.id);
+    return res.status(201).json({ id: feeding.id });
   } catch (err) {
     console.log(err);
 

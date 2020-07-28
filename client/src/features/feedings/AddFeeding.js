@@ -38,7 +38,7 @@ const AddFeeding = () => {
         })}
         onSubmit={async (values, { resetForm }) => {
           const res = await dispatch(addFeeding(values));
-          const submittedId = res.payload;
+          const submittedId = res.payload.id;
 
           history.push(`/thankyou/${submittedId}`);
         }}
