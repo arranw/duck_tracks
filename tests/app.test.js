@@ -9,21 +9,21 @@ const mockData = [
     time: "14:13",
     location: "Rotary Park",
     duck_quantity: 5,
-    food_type: "Sunflower Seeds",
+    food_type: "Bread",
     food_quantity: 350
   },
   {
     time: "00:29",
     location: "Elliston Park",
     duck_quantity: 10,
-    food_type: "Sourdough Bread",
+    food_type: "Fish",
     food_quantity: 750
   },
   {
     time: "23:11",
     location: "Prince's Island Park",
     duck_quantity: 3,
-    food_type: "Corn",
+    food_type: "Insect",
     food_quantity: 1200
   }
 ];
@@ -54,7 +54,7 @@ describe("Feeding Endpoints", () => {
     expect(res.body.time).toBe("14:13");
     expect(res.body.location).toBe("Rotary Park");
     expect(res.body.duck_quantity).toBe(5);
-    expect(res.body.food_type).toBe("Sunflower Seeds");
+    expect(res.body.food_type).toBe("Bread");
     expect(res.body.food_quantity).toBe(350);
   });
 
