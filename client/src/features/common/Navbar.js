@@ -27,11 +27,11 @@ const NavLinks = styled.ul`
   font-size: 1.2rem;
 
   & .active-link {
-    border-color: var(--attention-highlight) !important;
+    border-color: var(--attention-color) !important;
   }
 
   a:hover {
-    border-color: var(--attention-highlight);
+    border-color: var(--attention-color);
   }
 `;
 

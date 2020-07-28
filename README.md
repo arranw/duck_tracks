@@ -4,6 +4,6 @@ A data crowdsourcing application designed to aggregate data on how ducks are fed
 
 # Time Spent
 
-Backend: \_\_ Hours
-Design: \_\_ Hours
-Front End: \_\_ Hours
+Backend: \_\_ Hours <br/>
+Design: \_\_ Hours <br/>
+Front End: \_\_ Hours <br/>

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Landing from "./features/common/Landing";
 import { GlobalStyle } from "./features/styled/Lib";
 import Navbar from "./features/common/Navbar";
+import AddFeeding from "./features/feedings/AddFeeding";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Landing />
+        </Route>
+        <Route exact path="/submit">
+          <AddFeeding />
         </Route>
         <Route path="/redux">
           <header className="App-header">

@@ -6,10 +6,15 @@ const button = css`
   padding: 0.5em;
   border-radius: 10px;
   font-size: 120%;
-  background: var(--attention-highlight);
+  background: var(--attention-color);
+
   border: 0;
   cursor: pointer;
   text-align: center;
+
+  :hover {
+    background: var(--primary-color);
+  }
 `;
 
 export const LinkButton = styled(Link)`

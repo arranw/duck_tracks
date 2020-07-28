@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, BlockQuote } from "../styled/Lib";
-import { LinkButton, Button } from "../styled/Buttons";
-import { Link } from "react-router-dom";
+import { LinkButton } from "../styled/Buttons";
 
 const Landing = () => {
   return (

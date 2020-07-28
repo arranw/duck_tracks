@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const config = {
+  headers: {
+    "Content-Type": "Application/json"
+  }
+};
+
 export const feedingSlice = createSlice({
   name: "feeding",
   initialState: {
@@ -26,6 +32,24 @@ export const feedingSlice = createSlice({
         data: res.data,
         loading: false
       };
+    },
+    setFeeding: async (state, action) => {
+      console.log(action.payload);
+
+      state.feeding = {
+        data: action.payload,
+        loading: false
+      };
     }
   }
 });
+
+export const { getFeedings, setFeeding } = feedingSlice.actions;
+
+export default feedingSlice.reducer;
+
+export const addFeeding = values => async dispatch => {
+  const res = await axios.post("/api/feedings", values, config);
+
+  dispatch(setFeeding(res.data));
+};

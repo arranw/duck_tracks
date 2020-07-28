@@ -2,11 +2,17 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --attention-color: #d6ffff;
-    --attention-highlight: #78ffff;
+    --attention-color: #78ffff;
+    --attention-highlight: #d6ffff;
+    --primary-color: #6fc9c9;
+    --danger-color: #ff304f;
+
+    --input-border-color: #52abab;
 
     --nav-color: #071a52;
     --light-color: #ecfffb;
+
+    --dark-color: #111;
 
     --navbar-height: 60px;
   }
@@ -22,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     background: var(--light-color);
     font-family: 'Lato', sans-serif;
     height: 100vh;
+    color: var(--dark-color);
   }
 
   * {
@@ -49,8 +56,9 @@ export const Container = styled.div`
   align-content: center;
   justify-content: space-evenly;
 
-  div > * {
-    margin-bottom: 2rem;
+  p,
+  h1 {
+    margin: 2rem 0;
   }
 
   @media only screen and (min-width: 800px) {
@@ -59,8 +67,8 @@ export const Container = styled.div`
 `;
 
 export const BlockQuote = styled.blockquote`
-  background: var(--attention-color);
-  border-left: 10px solid var(--attention-highlight);
+  background: var(--attention-highlight);
+  border-left: 10px solid var(--attention-color);
   font-size: 200%;
 
   margin: 0.5em 0.5em;
@@ -68,7 +76,7 @@ export const BlockQuote = styled.blockquote`
 
   :before {
     content: open-quote;
-    color: var(--attention-highlight);
+    color: var(--attention-color);
     font-size: 3em;
 
     position: absolute;
