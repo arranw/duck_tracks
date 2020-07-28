@@ -31,6 +31,16 @@ Duck Tracks uses various packages to function:
 $ git clone https://github.com/arranw/duck_tracks.git
 ```
 
+Database configuration `config/default.json`: 
+```json
+"dbConfig": {
+  "HOST": "<host_address>",
+  "USER": "<db_username>",
+  "PASSWORD": "<db_password>",
+  "DATABASE": "duck_tracks"
+}
+```
+
 Install dependencies and run the development server:
 
 ```sh
