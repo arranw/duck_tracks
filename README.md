@@ -41,6 +41,12 @@ Database configuration `config/default.json`:
 }
 ```
 
+Create the database through MySQL
+
+```mysql
+CREATE DATABASE duck_tracks;
+```
+
 Install dependencies and run the development server:
 
 ```sh
@@ -48,7 +54,7 @@ $ cd duck_tracks
 $ npm i
 $ cd client
 $ npm i
-& cd ..
+$ cd ..
 $ npm run dev
 ```
 
