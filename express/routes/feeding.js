@@ -18,9 +18,9 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  await models.feeding.create(req.body);
+  const feeding = await models.feeding.create(req.body);
 
-  return res.status(201).end();
+  return res.status(201).json(feeding);
 });
 
 module.exports = router;

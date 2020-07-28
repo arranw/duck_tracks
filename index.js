@@ -8,6 +8,7 @@ async function checkDatabaseConnection() {
   console.log(`Checking database connection...`);
   try {
     await sequelize.authenticate();
+    await sequelize.sync({ force: true });
     console.log("Database connection OK!");
   } catch (error) {
     console.log("Unable to connect to the database:");
