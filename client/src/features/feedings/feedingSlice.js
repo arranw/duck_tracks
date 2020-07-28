@@ -13,6 +13,12 @@ export const addFeeding = createAsyncThunk("feeding/addFeeding", async values =>
   return res.data;
 });
 
+export const getFeeding = createAsyncThunk("feeding/getFeeding", async id => {
+  const res = await axios.get(`/api/feedings/${id}`);
+
+  return res.data;
+});
+
 export const feedingSlice = createSlice({
   name: "feeding",
   initialState: {
@@ -22,7 +28,8 @@ export const feedingSlice = createSlice({
     },
     feeding: {
       data: null,
-      loading: false
+      loading: true,
+      adding: false
     }
   },
   reducers: {
@@ -42,16 +49,18 @@ export const feedingSlice = createSlice({
   },
   extraReducers: {
     [addFeeding.pending]: state => {
-      state.feeding = {
-        data: null,
-        loading: true
-      };
+      state.feeding.adding = true;
     },
-    [addFeeding.fulfilled]: (state, action) => {
-      state.feeding = {
-        data: action.payload,
-        loading: false
-      };
+    [addFeeding.fulfilled]: state => {
+      state.feeding.adding = false;
+    },
+    [getFeeding.pending]: state => {
+      state.feeding.data = null;
+      state.feeding.loading = true;
+    },
+    [getFeeding.fulfilled]: (state, action) => {
+      state.feeding.data = action.payload;
+      state.feeding.loading = false;
     }
   }
 });

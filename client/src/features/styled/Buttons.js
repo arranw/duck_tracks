@@ -31,4 +31,5 @@ export const ClearButton = styled.button`
   color: unset;
   margin: 0;
   padding: 0;
+  cursor: pointer;
 `;

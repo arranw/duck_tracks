@@ -6,13 +6,15 @@ import * as Yup from "yup";
 import { Button } from "../styled/Buttons";
 import { StyledForm, StyledField, StyledNumberFormat, FormError, StyledSelect } from "../styled/Forms";
 import { addFeeding } from "./feedingSlice";
+import { useHistory } from "react-router-dom";
 
 const validFoodTypes = ["Bread", "Seed", "Insect", "Fish", "Other"];
 
 const AddFeeding = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const loading = useSelector(state => state.feeding.feeding.loading);
+  const loading = useSelector(state => state.feeding.feeding.adding);
 
   return (
     <Container>
@@ -21,7 +23,7 @@ const AddFeeding = () => {
         initialValues={{
           time: "16:33",
           location: "Sf Bay",
-          duck_quantity: 5,
+          duck_quantity: "",
           food_type: "Bread",
           food_quantity: 200
         }}
@@ -34,8 +36,11 @@ const AddFeeding = () => {
           food_type: Yup.mixed().oneOf(validFoodTypes, `Must be one of ${validFoodTypes}`).required("Required"),
           food_quantity: Yup.number().min(1, "Minimum is 1").required("Required")
         })}
-        onSubmit={values => {
-          dispatch(addFeeding(values));
+        onSubmit={async (values, { resetForm }) => {
+          const res = await dispatch(addFeeding(values));
+          const submittedId = res.payload;
+
+          history.push(`/thankyou/${submittedId}`);
         }}
       >
         {({ errors, touched }) => (
