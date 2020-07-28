@@ -1,5 +1,7 @@
 const { DataTypes } = require("sequelize");
 
+const validFoodTypes = ["Bread", "Seed", "Insect", "Fish", "Other"];
+
 // This function defines the sequalize model object
 module.exports = sequelize => {
   sequelize.define("feeding", {
@@ -20,7 +22,10 @@ module.exports = sequelize => {
     },
     food_type: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isIn: [validFoodTypes]
+      }
     },
     food_quantity: {
       type: DataTypes.INTEGER,
