@@ -54,7 +54,7 @@ $ cd duck_tracks
 $ npm i
 $ cd client
 $ npm i
-& cd ..
+$ cd ..
 $ npm run dev
 ```
 
