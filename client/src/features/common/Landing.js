@@ -20,8 +20,11 @@ const Landing = () => {
           passionate about ducks and data, then we need your help!
         </p>
       </div>
-
       <LinkButton to="/submit">Contribute</LinkButton>
+      <div>
+        <p>Or, if you're just curious:</p>
+        <LinkButton to="/view">View Submissions</LinkButton>
+      </div>
     </Container>
   );
 };

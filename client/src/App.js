@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/">
           <Landing />
         </Route>
-        <Route path="/submit">
+        <Route exact path="/submit">
           <AddFeeding />
         </Route>
         <Route exact path="/thankyou/:id">
