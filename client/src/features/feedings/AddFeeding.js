@@ -21,11 +21,11 @@ const AddFeeding = () => {
       <h1>Submit Duck Feeding</h1>
       <Formik
         initialValues={{
-          time: "16:33",
-          location: "Sf Bay",
+          time: "",
+          location: "",
           duck_quantity: "",
-          food_type: "Bread",
-          food_quantity: 200
+          food_type: "",
+          food_quantity: ""
         }}
         validationSchema={Yup.object().shape({
           time: Yup.string()

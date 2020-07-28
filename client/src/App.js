@@ -7,6 +7,7 @@ import Navbar from "./features/common/Navbar";
 import AddFeeding from "./features/feedings/AddFeeding";
 import ViewFeeding from "./features/feedings/ViewFeeding";
 import ThankYou from "./features/feedings/ThankYou";
+import FeedingList from "./features/feedings/FeedingList";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route exact path="/view/:id">
           <ViewFeeding />
+        </Route>
+        <Route exact path="/view">
+          <FeedingList />
         </Route>
       </Switch>
     </Router>

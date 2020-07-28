@@ -4,35 +4,12 @@ const router = express.Router();
 const { models } = require("../../sequelize");
 
 router.get("/", async (req, res) => {
-  await models.feeding.create({
-    time: "20:34",
-    location: "Rotary Park",
-    duck_quantity: 5,
-    food_type: "Sunflower Seeds",
-    food_quantity: 350
-  });
-  await models.feeding.create({
-    time: "23:11",
-    location: "Prince's Island Park",
-    duck_quantity: 3,
-    food_type: "Corn",
-    food_quantity: 1200
-  });
-
   const feedings = await models.feeding.findAll();
 
   return res.status(200).json(feedings);
 });
 
 router.get("/:id", async (req, res) => {
-  await models.feeding.create({
-    time: "20:34",
-    location: "Rotary Park",
-    duck_quantity: 5,
-    food_type: "Sunflower Seeds",
-    food_quantity: 350
-  });
-
   const feeding = await models.feeding.findByPk(req.params.id);
 
   if (!feeding) return res.status(404).send("Not Found");
