@@ -8,19 +8,6 @@ Duck Tracks is a modern full stack web application designed to aggregate crowd-s
 - View a specific duck feeding record
 - View all duck feeding records
 
-### Tech
-
-Duck Tracks uses various packages to function:
-
-- React
-- Redux
-- Styled-Components
-- Express
-- Sequelize
-- Node
-- MySQL
-- And more, refer to package.json for a complete list of dependencies
-
 ### Requirements
 
 ![Node Version](https://img.shields.io/badge/node-v10.15.3-blue) ![MySQL Version](https://img.shields.io/badge/mysql-v5.7-blue) ![NPM Version](https://img.shields.io/badge/npm-v6.13-blue)
