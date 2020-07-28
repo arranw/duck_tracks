@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../styled/Lib";
 import { Formik, Field } from "formik";
 import * as Yup from "yup";
@@ -12,6 +12,8 @@ const validFoodTypes = ["Bread", "Seed", "Insect", "Fish", "Other"];
 const AddFeeding = () => {
   const dispatch = useDispatch();
 
+  const loading = useSelector(state => state.feeding.feeding.loading);
+
   return (
     <Container>
       <h1>Submit Duck Feeding</h1>
@@ -19,22 +21,21 @@ const AddFeeding = () => {
         initialValues={{
           time: "16:33",
           location: "Sf Bay",
-          duckQuantity: 5,
-          foodType: "Bread",
-          foodQuantity: 200
+          duck_quantity: 5,
+          food_type: "Bread",
+          food_quantity: 200
         }}
         validationSchema={Yup.object().shape({
           time: Yup.string()
             .matches(/([01]\d|2[0-3]):?[0-5]\d/, "Please Use Military Time Format (HH:mm)")
             .required("Required"),
           location: Yup.string().required("Required"),
-          duckQuantity: Yup.number().min(1, "Minimum is 1").required("Required"),
-          foodType: Yup.mixed().oneOf(validFoodTypes, `Must be one of ${validFoodTypes}`).required("Required"),
-          foodQuantity: Yup.number().min(1, "Minimum is 1").required("Required")
+          duck_quantity: Yup.number().min(1, "Minimum is 1").required("Required"),
+          food_type: Yup.mixed().oneOf(validFoodTypes, `Must be one of ${validFoodTypes}`).required("Required"),
+          food_quantity: Yup.number().min(1, "Minimum is 1").required("Required")
         })}
         onSubmit={values => {
           dispatch(addFeeding(values));
-          console.log(values);
         }}
       >
         {({ errors, touched }) => (
@@ -53,17 +54,17 @@ const AddFeeding = () => {
             </label>
             <StyledField id="location" name="location" />
 
-            <label htmlFor="duckQuantity">
+            <label htmlFor="duck_quantity">
               How many Ducks?
-              {errors.duckQuantity && touched.duckQuantity && <FormError>{errors.duckQuantity}</FormError>}
+              {errors.duck_quantity && touched.duck_quantity && <FormError>{errors.duck_quantity}</FormError>}
             </label>
-            <StyledField id="duckQuantity" name="duckQuantity" type="number" />
+            <StyledField id="duck_quantity" name="duck_quantity" type="number" />
 
-            <label htmlFor="foodType">
+            <label htmlFor="food_type">
               What Kind of Food?
-              {errors.foodType && touched.foodType && <FormError>{errors.foodType}</FormError>}
+              {errors.food_type && touched.food_type && <FormError>{errors.food_type}</FormError>}
             </label>
-            <Field id="foodType" name="foodType">
+            <Field id="food_type" name="food_type">
               {({ field }) => (
                 <StyledSelect {...field}>
                   <option hidden disabled value=""></option>
@@ -76,13 +77,13 @@ const AddFeeding = () => {
               )}
             </Field>
 
-            <label htmlFor="foodQuantity">
+            <label htmlFor="food_quantity">
               How much food? (g)
-              {errors.foodQuantity && touched.foodQuantity && <FormError>{errors.foodQuantity}</FormError>}
+              {errors.food_quantity && touched.food_quantity && <FormError>{errors.food_quantity}</FormError>}
             </label>
-            <StyledField id="foodQuantity" name="foodQuantity" type="number" />
+            <StyledField id="food_quantity" name="food_quantity" type="number" />
 
-            <Button type="submit">Submit</Button>
+            <Button type="submit">{loading ? "..." : "Submit"}</Button>
           </StyledForm>
         )}
       </Formik>

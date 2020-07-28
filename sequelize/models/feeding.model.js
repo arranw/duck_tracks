@@ -4,8 +4,11 @@ const { DataTypes } = require("sequelize");
 module.exports = sequelize => {
   sequelize.define("feeding", {
     time: {
-      type: DataTypes.DATE,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        is: /^([01]\d|2[0-3]):?[0-5]\d$/
+      }
     },
     location: {
       type: DataTypes.STRING,

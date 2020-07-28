@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const config = {
@@ -6,6 +6,12 @@ const config = {
     "Content-Type": "Application/json"
   }
 };
+
+export const addFeeding = createAsyncThunk("feeding/addFeeding", async values => {
+  const res = await axios.post("/api/feedings", values, config);
+
+  return res.data;
+});
 
 export const feedingSlice = createSlice({
   name: "feeding",
@@ -16,7 +22,7 @@ export const feedingSlice = createSlice({
     },
     feeding: {
       data: null,
-      loading: true
+      loading: false
     }
   },
   reducers: {
@@ -32,10 +38,16 @@ export const feedingSlice = createSlice({
         data: res.data,
         loading: false
       };
+    }
+  },
+  extraReducers: {
+    [addFeeding.pending]: state => {
+      state.feeding = {
+        data: null,
+        loading: true
+      };
     },
-    setFeeding: async (state, action) => {
-      console.log(action.payload);
-
+    [addFeeding.fulfilled]: (state, action) => {
       state.feeding = {
         data: action.payload,
         loading: false
@@ -47,9 +59,3 @@ export const feedingSlice = createSlice({
 export const { getFeedings, setFeeding } = feedingSlice.actions;
 
 export default feedingSlice.reducer;
-
-export const addFeeding = values => async dispatch => {
-  const res = await axios.post("/api/feedings", values, config);
-
-  dispatch(setFeeding(res.data));
-};
