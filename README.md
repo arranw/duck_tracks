@@ -1,7 +1,5 @@
 # Duck Tracks
 
-![Node Version](https://img.shields.io/badge/node-v10.15.3-blue) ![NPM Version](https://img.shields.io/badge/mysql-v5.7-blue)
-
 Duck Tracks is a modern full stack web application designed to aggregate crowd-sourced information from the public.
 
 # Features
@@ -23,16 +21,27 @@ Duck Tracks uses various packages to function:
 - MySQL
 - And more, refer to package.json for a complete list of dependencies
 
-### Installation
+### Requirements
 
-Duck Tracks was developed with [Node.js](https://nodejs.org/) v10.15.3
-It is recommended to use this version or later.
+![Node Version](https://img.shields.io/badge/node-v10.15.3-blue) ![MySQL Version](https://img.shields.io/badge/mysql-v5.7-blue) ![NPM Version](https://img.shields.io/badge/npm-v6.13-blue)
+
+### Installation
 
 ```sh
 $ git clone https://github.com/arranw/duck_tracks.git
 ```
 
-Install dependencies and run the development server.
+Database configuration `config/default.json`: 
+```json
+"dbConfig": {
+  "HOST": "<host_address>",
+  "USER": "<db_username>",
+  "PASSWORD": "<db_password>",
+  "DATABASE": "duck_tracks"
+}
+```
+
+Install dependencies and run the development server:
 
 ```sh
 $ cd duck_tracks
@@ -43,7 +52,7 @@ $ npm i
 $ npm run dev
 ```
 
-For production environments...
+For production environments:
 
 ```sh
 $ cd duck_tracks
@@ -61,9 +70,9 @@ Time spent was roughly divided as follows:
 
 | Section   | Time (h) |
 | --------- | -------- |
-| Back End  | 4h       |
-| Design    | 1h       |
-| Front End | 4h       |
+| Back End  | 4.0h       |
+| Design    | 1.0h       |
+| Front End | 4.0h       |
 
 ### Deficiencies
 
@@ -72,3 +81,4 @@ There are a few deficiencies I would address with a larger time budget.
 - Front End Testing
 - Proper error passing from server to client
 - Design is too simple
+- Data Export
