@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-export const FeedingWrapper = styled.div``;
-
 export const FeedingItem = styled.div`
   display: flex;
   align-items: flex-end;

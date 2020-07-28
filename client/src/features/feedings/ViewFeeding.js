@@ -3,7 +3,7 @@ import { useRouteMatch } from "react-router-dom";
 import { Container } from "../styled/Lib";
 import { useDispatch, useSelector } from "react-redux";
 import { getFeeding } from "./feedingSlice";
-import { FeedingWrapper, FeedingItem } from "../styled/Feeding";
+import { FeedingItem } from "../styled/Feeding";
 import { LinkButton } from "../styled/Buttons";
 
 const ViewFeeding = () => {
@@ -32,7 +32,7 @@ export default ViewFeeding;
 
 export const Feeding = ({ data, loading }) => {
   return (
-    <FeedingWrapper>
+    <div>
       <FeedingItem>
         <h3>Time of Feeding</h3>
         <span>{data?.time || "..."}</span>
@@ -54,6 +54,6 @@ export const Feeding = ({ data, loading }) => {
         <span>{data?.food_quantity || "..."}</span>
       </FeedingItem>
       Submission Time: <span>{data?.createdAt || "..."}</span>
-    </FeedingWrapper>
+    </div>
   );
 };

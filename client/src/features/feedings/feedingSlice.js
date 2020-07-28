@@ -19,6 +19,12 @@ export const getFeeding = createAsyncThunk("feeding/getFeeding", async id => {
   return res.data;
 });
 
+export const getAllFeedings = createAsyncThunk("feeding/getAllFeedings", async id => {
+  const res = await axios.get(`/api/feedings/`);
+
+  return res.data;
+});
+
 export const feedingSlice = createSlice({
   name: "feeding",
   initialState: {
@@ -61,6 +67,14 @@ export const feedingSlice = createSlice({
     [getFeeding.fulfilled]: (state, action) => {
       state.feeding.data = action.payload;
       state.feeding.loading = false;
+    },
+    [getAllFeedings.pending]: state => {
+      state.feedings.data = null;
+      state.feedings.loading = true;
+    },
+    [getAllFeedings.fulfilled]: (state, action) => {
+      state.feedings.data = action.payload;
+      state.feedings.loading = false;
     }
   }
 });
